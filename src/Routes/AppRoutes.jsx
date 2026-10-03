@@ -4,7 +4,7 @@ import HomePage from '../Components/Home';
 import RecipePage from '../Pages/RecipePage';
 import CartPage from '../Pages/CartPage';
 import OrderSuccess from '../Pages/OrderSuccess';
-import Search from '../Pages/search';
+import Search from "./Pages/Search";
 
 const AppRoutes = () => {
   return (
