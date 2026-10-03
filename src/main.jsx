@@ -5,7 +5,7 @@ import { MyStoreProvider } from './MyContext/MyWebContext.jsx'
 import { BrowserRouter } from "react-router";
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/Recipe-CRUD">
     <MyStoreProvider>
     <App />
   </MyStoreProvider>
