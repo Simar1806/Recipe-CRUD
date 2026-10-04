@@ -4,7 +4,7 @@ import RecipeCard from '../Components/RecipeCard'
 import { MyStore } from '../MyContext/MyWebContext'
 
 const Search = () => {
-    let {recipes , recipeToSearch} = useContext(MyStore)
+    let {recipes , recipeToSearch , cartRecipes} = useContext(MyStore)
     
     recipes = recipes.filter((recipe) => recipe.title.toLowerCase().includes(recipeToSearch) || recipe.chef.toLowerCase().includes(recipeToSearch))
     
@@ -37,9 +37,10 @@ const Search = () => {
         {/* Recipe Results */}
         {recipes.length > 0 ? (
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {recipes.map((recipe) => (
-              <RecipeCard key={recipe.id} recipe={recipe} />
-            ))}
+            {recipes.map((recipe) => {
+              let isInCart = cartRecipes.find(val => val.id === recipe.id)
+              return <RecipeCard isInCart= {isInCart} key={recipe.id} recipe={recipe} />
+           } )}
           </div>
         ) : (
           /* Empty Results UI */
